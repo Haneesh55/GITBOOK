@@ -3,6 +3,8 @@ package com.cg.ecom.serviceimpl;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,10 +16,12 @@ import com.cg.ecom.exceptions.CustomerNotFoundException;
 import com.cg.ecom.repository.CustomersRepository;
 import com.cg.ecom.service.CustomersService;
 
+
+
 @Service
 public class CustomersServiceImpl implements CustomersService {
 	@Autowired
-	private CustomersRepository customerRepository;
+	private CustomersRepository customerRepository ;
 	
 
 
@@ -36,12 +40,15 @@ public class CustomersServiceImpl implements CustomersService {
 
 	    Customers savedCustomers = customerRepository.save(customers);
 
-	    CustomersDTO customersDTO = new CustomersDTO();
-	    customersDTO.setCustomerId(savedCustomers.getCustomerId());
-	    customersDTO.setAddress(savedCustomers.getAddress());
-	    customersDTO.setCustomerName(savedCustomers.getCustomerName());
-	    customersDTO.setEmailId(savedCustomers.getEmailId());
-	    customersDTO.setMobilenumber(savedCustomers.getMobilenumber());
+//	    CustomersDTO customersDTO = new CustomersDTO();
+//	    customersDTO.setCustomerId(savedCustomers.getCustomerId());
+//	    customersDTO.setAddress(savedCustomers.getAddress());
+//	    customersDTO.setCustomerName(savedCustomers.getCustomerName());
+//	    customersDTO.setEmailId(savedCustomers.getEmailId());
+//	    customersDTO.setMobilenumber(savedCustomers.getMobilenumber());
+	    
+	    ModelMapper modelMapper = new ModelMapper();
+	    CustomersDTO customersDTO = modelMapper.map( savedCustomers, CustomersDTO.class);
 
 	    return customersDTO;
 	}
@@ -58,6 +65,8 @@ public class CustomersServiceImpl implements CustomersService {
 	        customers.setMobilenumber(customersDTO.getMobilenumber());
 	        customers.setCustomerName(customersDTO.getCustomerName());
 	        Customers savedCustomer = customerRepository.save(customers);
+	        
+	       
 	        customersDTO.setCustomerId(savedCustomer.getCustomerId());
 	        return customersDTO;
 	    } else {
