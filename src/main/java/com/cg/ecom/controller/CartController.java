@@ -2,6 +2,8 @@ package com.cg.ecom.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,12 +29,12 @@ public class CartController {
 	public CartService cartService;
 
 	@PostMapping("/addCart")
-	public ResponseEntity<CartDTO> addToCart(@RequestBody AddCartDTO addCartDTO){
+	public ResponseEntity<CartDTO> addToCart(@Valid @RequestBody AddCartDTO addCartDTO){
 
-		CartDTO cartsave = cartService.addToCart(addCartDTO);
-		return ResponseEntity.ok(cartsave);
-
+	    CartDTO cartsave = cartService.addToCart(addCartDTO);
+	    return ResponseEntity.ok(cartsave);
 	}
+
 
 	@PutMapping("/updateCart")
 	public ResponseEntity<CartDTO> updateCart(@RequestBody CartDTO cartDTO) {

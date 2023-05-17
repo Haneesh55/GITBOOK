@@ -81,36 +81,36 @@
         
       
 
-<dependency>
+<!--dependency>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-maven-plugin</artifactId>
     <version>2.6.3</version>
-</dependency>
+</dependency -->
 
         
-        <dependency>
+        <!-- dependency>
     <groupId>org.junit.jupiter</groupId>
     <artifactId>junit-jupiter</artifactId>
     <version>5.7.2</version>
     <scope>test</scope>
-</dependency>
+</dependency -->
 
-<dependency>
+<!-- dependency>
         <groupId>org.sonarsource.scanner.maven</groupId>
         <artifactId>sonar-maven-plugin</artifactId>
         <version>3.2</version>
-    </dependency>
+    </dependency -->
     
-    <dependency>
+    <!-- dependency>
     <groupId>org.modelmapper</groupId>
     <artifactId>modelmapper</artifactId>
     <version>2.4.4</version>
-</dependency>
+</dependency -->
 
         
 	</dependencies>
 
-<profiles>
+<!-- profiles>
 <profile>
       <id>sonar</id>
       <activation>
@@ -122,7 +122,7 @@
       </properties>
     </profile>
 
-</profiles>
+</profiles -->
 
 	<build>
 	

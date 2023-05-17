@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Min;
@@ -26,16 +27,16 @@ public class Cart {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int cartId;
 
-	@NotNull(message = "Quantity cannot be null")
-	@Min(value = 1, message = "Quantity should be greater than or equal to 1")
+//	@NotNull(message = "Quantity cannot be null")
+//	@Min(value = 1, message = "Quantity should be greater than or equal to 1")
 	private int quantity;
 
-	@NotNull(message = "Customer cannot be null")
+//	@NotNull(message = "Customer cannot be null")
 	@OneToOne
 	@JoinColumn(name = "customer_cart_fk")
 	private Customers customers;
 
-	@NotNull(message = "Product item cannot be null")
+//	@NotNull(message = "Product item cannot be null")
 	@OneToOne
 	@JoinColumn(name = "cart_product_fk")
 	private ProductItems productItems;

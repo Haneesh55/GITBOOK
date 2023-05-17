@@ -1,5 +1,5 @@
-package com.cg.ecom.ecomapp;
-
-public class ProductSupplierControllerTest {
-
-}
+//package com.cg.ecom.ecomapp;
+//
+//public class ProductSupplierControllerTest {
+//
+//}

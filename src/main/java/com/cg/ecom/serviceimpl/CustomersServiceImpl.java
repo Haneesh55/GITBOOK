@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import org.modelmapper.ModelMapper;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -40,15 +39,15 @@ public class CustomersServiceImpl implements CustomersService {
 
 	    Customers savedCustomers = customerRepository.save(customers);
 
-//	    CustomersDTO customersDTO = new CustomersDTO();
-//	    customersDTO.setCustomerId(savedCustomers.getCustomerId());
-//	    customersDTO.setAddress(savedCustomers.getAddress());
-//	    customersDTO.setCustomerName(savedCustomers.getCustomerName());
-//	    customersDTO.setEmailId(savedCustomers.getEmailId());
-//	    customersDTO.setMobilenumber(savedCustomers.getMobilenumber());
+	    CustomersDTO customersDTO = new CustomersDTO();
+	    customersDTO.setCustomerId(savedCustomers.getCustomerId());
+	    customersDTO.setAddress(savedCustomers.getAddress());
+	    customersDTO.setCustomerName(savedCustomers.getCustomerName());
+	    customersDTO.setEmailId(savedCustomers.getEmailId());
+	    customersDTO.setMobilenumber(savedCustomers.getMobilenumber());
 	    
-	    ModelMapper modelMapper = new ModelMapper();
-	    CustomersDTO customersDTO = modelMapper.map( savedCustomers, CustomersDTO.class);
+//	    ModelMapper modelMapper = new ModelMapper();
+//	    CustomersDTO customersDTO = modelMapper.map( savedCustomers, CustomersDTO.class);
 
 	    return customersDTO;
 	}
